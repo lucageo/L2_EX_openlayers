@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en">
+  <head>
+    <title>OpenLayers example</title>
+	<script src="libraries/ol.js"></script>
+
+  </head>
+  <body>
+    <h2>My Map</h2>
+    <div id="myMap" style="width: 100%, height: 400px"></div>
+    
+	<script type="text/javascript">
+	var map;
+
+	map = new ol.Map({
+		target: "myMap",
+		view: new ol.View({
+			center: ol.proj.transform([13.03,47.8], 'EPSG:4326', 'EPSG:3857'),
+			zoom: 4
+		})
+	});
+  
+	var osmBasemap = new ol.layer.Tile({source: new ol.source.OSM()});
+	map.addLayer(osmBasemap);
+
+    </script>
+  </body>
+</html>
